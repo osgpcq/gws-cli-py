@@ -49,8 +49,8 @@ else:
 table = []
 for admin in admin_users:
   if args.verbose:
-    print("-----------------------------------------------------------------")
-    print(">",admin.split('@')[1],"<")
+    print('-----------------------------------------------------------------')
+    print('>',admin.split('@')[1],'<')
   # Get the path where the script is being executed
   script_path = os.path.dirname(os.path.realpath(__file__))
 
@@ -87,10 +87,10 @@ for admin in admin_users:
   # Loop through all users
   response = directory.users().list(customer='my_customer', maxResults=500, orderBy='email').execute()
   users = response.get('users', [])
-  nextPageToken = response.get('nextPageToken', "")
+  nextPageToken = response.get('nextPageToken', '')
   while nextPageToken:
     response = service.users().list(customer='my_customer', maxResults=500, orderBy='email', pageToken=nextPageToken).execute()
-    nextPageToken = response.get('nextPageToken', "")
+    nextPageToken = response.get('nextPageToken', '')
     users.extend(response.get('users', []))
   if not users:
     print('No users in the domain.')
@@ -122,6 +122,6 @@ for admin in admin_users:
         #user['customSchemas']['Extra_fields']['skypeid'],
         title,
       ])
-tablefmt="rounded_outline" # 'simple': 'github', 'rounded_outline'
+tablefmt='rounded_outline' # 'simple': 'github', 'rounded_outline'
 headers=['primaryEmail', 'name_fullName', 'orgUnitPath', 'suspended', 'archived', 'changePW_ANL', 'isEnrolledIn2Sv', 'isEnforcedIn2Sv', 'isAdmin', 'isDelegatedAdmin', 'agreedToTerms', 'isMailboxSetup', 'creationTime', 'lastLoginTime', 'organizations_0_title']
 print(tabulate(table, headers=headers, tablefmt=tablefmt))
