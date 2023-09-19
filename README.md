@@ -20,3 +20,6 @@ User needs enough rights to parse the information.
 
 ./gws-cli.py -c credentials.json -au user@domain.ext, user2@domain2.ext2
 ```
+
+# History
+Still in quick & dirty dev phase!
