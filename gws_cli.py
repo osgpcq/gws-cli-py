@@ -48,7 +48,7 @@ else:
 
 table = []
 for admin in admin_users:
-  if args.verbose:
+  if (args.verbose):
     print('-----------------------------------------------------------------')
     print('>',admin.split('@')[1],'<')
   # Get the path where the script is being executed
@@ -96,7 +96,7 @@ for admin in admin_users:
     print('No users in the domain.')
   else:
     for user in users:
-      if args.verbose:
+      if (args.verbose):
         print(user['primaryEmail'])
       # 'organizations': [{'title': 'Client Care Specialist', 'primary': True, 'customType': ''}],
       title=''
